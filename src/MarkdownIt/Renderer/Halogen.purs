@@ -31,4 +31,4 @@ render
   -> String
   -> HH.HTML p i
 render md props input =
-  RH.render props $ unsafePerformEffect $ MD.render input md
+  RH.render props $ unsafePerformEffect $ MD.render md input
