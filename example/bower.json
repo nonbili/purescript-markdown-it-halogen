@@ -8,8 +8,8 @@
     "output"
   ],
   "dependencies": {
-    "purescript-html-parser-halogen": "https://github.com/rnons/purescript-html-parser-halogen.git#e5e811f78b02aa6ab1700d998d61dc6aa53aab81",
-    "purescript-markdown-it": "^0.3.0"
+    "purescript-html-parser-halogen": "https://github.com/rnons/purescript-html-parser-halogen.git#890da763cdd2a1049ab8837e477c5ba1fcf6d4ce",
+    "purescript-markdown-it": "^0.4.0"
   },
   "devDependencies": {
     "purescript-psci-support": "^4.0.0"

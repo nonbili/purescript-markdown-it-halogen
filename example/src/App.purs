@@ -4,18 +4,23 @@ import Prelude
 
 import Data.Const (Const)
 import Data.Maybe (Maybe(..))
+import Data.Options ((:=))
+import Effect.Unsafe (unsafePerformEffect)
 import Halogen as H
 import Halogen.HTML as HH
 import Halogen.HTML.Events as HE
 import Halogen.HTML.Properties as HP
+import MarkdownIt as MD
 import MarkdownIt.Renderer.Halogen as MRH
 
 type Query = Const Void
 
 data Action = OnValueChange String
 
-type State = { value:: String }
-
+type State =
+  { markdownIt :: MD.MarkdownIt
+  , value :: String
+  }
 
 initValue :: String
 initValue = """
@@ -25,7 +30,13 @@ Powered by [purescript-markdown-it](https://github.com/nonbili/purescript-markdo
 """
 
 initialState :: State
-initialState = { value: initValue }
+initialState =
+  { markdownIt
+  , value: initValue
+  }
+  where
+  markdownIt = unsafePerformEffect $
+    MD.newMarkdownIt MD.Default $ MD.linkify := true
 
 class_ :: forall r i. String -> HP.IProp ("class" :: String | r) i
 class_ = HP.class_ <<< HH.ClassName
@@ -49,7 +60,7 @@ render state =
   , HH.div [ class_ "col col-preview" ]
     [ HH.h4_ [ HH.text "PREVIEW" ]
     , HH.div [ class_ "preview" ]
-      [ MRH.renderString state.value ]
+      [ MRH.render_ state.markdownIt state.value ]
     ]
   , HH.div [ class_ "footer" ]
     [ MRH.renderString "[source code](https://github.com/nonbili/purescript-markdown-it/halogen/tree/master/example)"
