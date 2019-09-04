@@ -18,7 +18,7 @@
     "output"
   ],
   "dependencies": {
-    "purescript-html-parser-halogen": "https://github.com/rnons/purescript-html-parser-halogen.git#890da763cdd2a1049ab8837e477c5ba1fcf6d4ce",
+    "purescript-html-parser-halogen": "https://github.com/rnons/purescript-html-parser-halogen.git#5312d4bd702a88f14ef72e89ac2b3eb856dde70c",
     "purescript-markdown-it": "^0.4.0"
   },
   "devDependencies": {
