@@ -3,7 +3,6 @@ module App where
 import Prelude
 
 import Data.Const (Const)
-import Data.Maybe (Maybe(..))
 import Data.Options ((:=))
 import Effect.Unsafe (unsafePerformEffect)
 import Halogen as H
@@ -54,7 +53,7 @@ render state =
     , HH.textarea
       [ class_ "edit"
       , HP.value state.value
-      , HE.onValueInput $ Just <<< OnValueChange
+      , HE.onValueInput OnValueChange
       ]
     ]
   , HH.div [ class_ "col col-preview" ]
@@ -70,7 +69,7 @@ render state =
   repoUrl = "https://github.com/rnons/purescript-html-parser-halogen"
   demoSourceUrl = repoUrl <> "/tree/master/example"
 
-app :: forall m. H.Component HH.HTML Query Unit Void m
+app :: forall m. H.Component Query Unit Void m
 app = H.mkComponent
   { initialState: const initialState
   , render

@@ -1,0 +1,26 @@
+{
+    "name": "purescript-markdown-it-halogen",
+    "version": "0.1.0",
+    "description": "A library to render markdown into halogen views",
+    "directories": {
+        "example": "example"
+    },
+    "scripts": {
+        "build": "spago build",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nonbili/purescript-markdown-it-halogen.git"
+    },
+    "author": "Ping Chen",
+    "license": "BSD-3-Clause",
+    "bugs": {
+        "url": "https://github.com/nonbili/purescript-markdown-it-halogen/issues"
+    },
+    "homepage": "https://github.com/nonbili/purescript-markdown-it-halogen#readme",
+    "devDependencies": {
+        "purescript": "^0.15.4",
+        "spago": "^0.20.9"
+    }
+}
